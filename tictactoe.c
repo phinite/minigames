@@ -90,6 +90,7 @@ Move get_move( int board[3][3] ) {
 
 	printf("\n\n> ");
 	x = 0;
+	// gets exactly 2 characters
 	while ( (c = getchar()) != '\n' ) {
 		if ( x > 1 ) {
 			printf("invalid move. Please enter a coord\n");
@@ -107,6 +108,7 @@ Move get_move( int board[3][3] ) {
 		for ( j = 0; j <= 2; ++j ) {
 			// compares user input to a list of valid user input then sets coords
 			if ( strncmp(input, uc[i][j], sizeof(input)) == 0 || strncmp(input, uc_r[i][j], sizeof(input)) == 0 ) {
+				// If its an empty space
 				if ( board[i][j] == 0 ) {
 					m.x = j;
 					m.y = i;
