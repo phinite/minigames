@@ -27,6 +27,7 @@ int main() {
 	move.x = 0;
 	move.y = 0;
 	move.player = 0;
+	int t_ctr = 0; // I'll just use this to check if there's a tie
 
 	int win = 0;
 	int turn = 2;
@@ -37,9 +38,14 @@ int main() {
 		board[move.y][move.x] = turn;
 		move.player = turn;
 		win = check_win(move, board);
+		if (++t_ctr == 8)
+			break;
 	}
-	printf("Player %d has won! Play again? y/n:   ", turn);
-	while ( 1 ) {
+	if (t_ctr == 8) {
+		printf("A tie, play again?");
+	} else:
+		printf("Player %d has won! Play again? y/n:   ", turn);
+        } while ( 1 ) {
 		char r = tolower(getchar());
 		if ( r == 'y' ) {
 			main();
